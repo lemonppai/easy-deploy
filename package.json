@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "deploy": "gulp deploy"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-run-sequence": "^0.3.2",
+    "gulp-ssh": "^0.7.0"
+  }
+}
