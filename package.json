@@ -1,10 +1,24 @@
 {
+  "name": "jiulin-deploy",
+  "author": "jiulin",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lemonppai/deploy.git"
+  },
+  "main": "index.js",
+  "bin": {
+    "deploy": "bin/deploy"
+  },
   "scripts": {
     "deploy": "gulp deploy"
   },
   "devDependencies": {
+    "commander": "^2.16.0",
     "gulp": "^3.9.1",
     "gulp-run-sequence": "^0.3.2",
-    "gulp-ssh": "^0.7.0"
+    "gulp-ssh": "^0.7.0",
+    "shelljs": "^0.8.2"
   }
 }
