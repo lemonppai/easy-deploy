@@ -4,8 +4,9 @@ const runSequence = require('gulp-run-sequence');
 const remoteConf = require('./remote.config.js');
 const fs = require('fs');
 const path = require('path');
+const rootPath = require('app-root-path').path;
 
-const pathToRemote = path.resolve(process.cwd(), './remote.config.js');
+const pathToRemote = path.resolve(rootPath, './remote.config.js');
 if (fs.existsSync(pathToRemote)) {
   Object.assign(remoteConf, require(pathToRemote));
 }
