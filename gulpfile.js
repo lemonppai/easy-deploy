@@ -2,6 +2,13 @@ const gulp = require('gulp');
 const GulpSSH = require('gulp-ssh');
 const runSequence = require('gulp-run-sequence');
 const remoteConf = require('./remote.config.js');
+const fs = require('fs');
+const path = require('path');
+
+const pathToRemote = path.resolve(process.cwd(), './remote.config.js');
+if (fs.existsSync(pathToRemote)) {
+  Object.assign(remoteConf, require(pathToRemote));
+}
 
 const gulpSSH = new GulpSSH({
   ignoreErrors: false,
