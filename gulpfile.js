@@ -7,6 +7,7 @@ const path = require('path');
 const rootPath = require('app-root-path').path;
 
 const pathToRemote = path.resolve(rootPath, './remote.config.js');
+
 if (fs.existsSync(pathToRemote)) {
   Object.assign(remoteConf, require(pathToRemote));
 }
@@ -19,7 +20,7 @@ const gulpSSH = new GulpSSH({
 
 // 文件上传
 gulp.task('upload', () => {
-  return gulp.src('./dist/*.zip')
+  return gulp.src(path.resolve(rootPath, './dist/*.zip'))
     .pipe(gulpSSH.dest(remoteConf.remoteDir));
 });
 
