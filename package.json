@@ -1,18 +1,16 @@
 {
   "name": "jiulin-deploy",
   "author": "jiulin",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lemonppai/deploy.git"
   },
   "main": "index.js",
-  "bin": {
-    "jiulin-deploy": "bin/cli.js"
-  },
+  "bin": "bin/cli.js",
   "scripts": {
-    "deploy": "gulp deploy"
+    "deploy": "jiulin-deploy"
   },
   "dependencies": {
     "app-root-path": "^2.1.0",
