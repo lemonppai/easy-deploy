@@ -1,7 +1,7 @@
 {
   "name": "jiulin-deploy",
   "author": "jiulin",
-  "version": "0.3.4",
+  "version": "0.3.6",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -9,7 +9,7 @@
   },
   "main": "index.js",
   "bin": {
-    "jiulin-deploy": "bin/cli"
+    "jiulin-deploy": "bin/cli.js"
   },
   "scripts": {
     "deploy": "gulp deploy"
