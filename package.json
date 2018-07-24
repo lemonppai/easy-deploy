@@ -1,6 +1,5 @@
 {
-  "name": "jiulin-deploy",
-  "author": "jiulin",
+  "name": "lemon-deploy",
   "version": "0.3.7",
   "license": "MIT",
   "repository": {
@@ -10,7 +9,7 @@
   "main": "index.js",
   "bin": "bin/cli.js",
   "scripts": {
-    "deploy": "jiulin-deploy"
+    "deploy": "lemon-deploy"
   },
   "dependencies": {
     "app-root-path": "^2.1.0",
