@@ -6,7 +6,7 @@ module.exports = {
     username: '***',
     password: '***'
   },
-  // 远程地址
+  // 上传文件位置
   remoteDir: '/home/upload',
   // 远程命令
   commands: [
