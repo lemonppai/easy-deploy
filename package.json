@@ -1,6 +1,6 @@
 {
   "name": "lemon-deploy",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,7 +14,6 @@
   "dependencies": {
     "app-root-path": "^2.1.0",
     "commander": "^2.16.0",
-    "deepmerge": "^2.1.1",
     "gulp": "^3.9.1",
     "gulp-run-sequence": "^0.3.2",
     "gulp-ssh": "^0.7.0",
