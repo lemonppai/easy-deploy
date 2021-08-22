@@ -13,15 +13,6 @@ npm install lemon-deploy --save
 yarn add lemon-deploy
 ```
 
-### 在package.json配置scripts
-```json
-{
-  "scripts": {
-    "deploy": "lemon-deploy"
-  }
-}
-```
-
 ### remote.config.js配置
 
 在项目根目录创建`remote.config.js`文件
@@ -70,7 +61,9 @@ module.exports = {
 ### 测试下是否成功
 
 ```bash
-npm run ldeploy
-# 或
-yarn run deploy
+npx lemon-deploy
 ```
+
+### 结论
+
+雏形已现，功能持续完善中~
