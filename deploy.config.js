@@ -1,6 +1,8 @@
 // 服务器配置
 module.exports = {
-  type: 'ftp',
+  // 默认是ssh方式
+  type: 'ssh',
+
   // linux ssh环境
   ssh: {
     host:     '127.0.0.1',
