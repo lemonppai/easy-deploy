@@ -1,7 +1,12 @@
 # deploy
-前端代码部署到服务器，`remote.config.js`配置`ssh`、`remoteDir`、`commands`
+目标文件通过`ssh`或`ftp`发布到服务器
 
-### 在项目中安装
+## 使用
+
+### 当前项目安装
+
+国际惯例，先安装。
+
 ```bash
 npm install lemon-deploy --save
 # 或
@@ -18,15 +23,87 @@ yarn add lemon-deploy
 ```
 
 ### 执行
+
 ```bash
 npm run deploy
 ```
 
 ### remote.config.js配置
-  + ssh 服务器
-    + host 服务器地址
-    + port 服务器端口号，默认是22
-    + username 服务器账号
-    + password 服务器密码
-  + remoteDir 上传文件位置
-  + commands 远程命令
+
+# deploy
+目标文件通过`ssh`或`ftp`发布到服务器
+
+## 使用
+
+### 当前项目安装
+国际惯例，先安装。
+```bash
+npm install lemon-deploy --save
+# 或
+yarn add lemon-deploy
+```
+
+### 在package.json配置scripts
+
+```json
+{
+  "scripts": {
+    "deploy": "lemon-deploy"
+  }
+}
+```
+
+
+### remote.config.js配置
+
+在项目根目录创建`remote.config.js`文件
+默认配置如下：
+
+```js
+// 服务器配置
+module.exports = {
+  type: 'ssh',
+  // linux ssh环境
+  ssh: {
+    host:     '127.0.0.1',
+    username: '***',
+    password: '***',
+    port:     22,
+  },
+  // window ftp环境
+  ftp: {
+    host:     '127.0.0.1',
+    user:     '***',
+    password: '***',
+    port:     21,
+    parallel: 10,
+    reload:   true,
+  },
+  // dist: './dist/*.zip',  // 上传zip包后执行解压操作
+  dist: './dist/**/*',
+  // 上传文件位置
+  remoteDir: '/home/upload',
+  // 远程命令
+  commands: [
+    // 解压命令
+    // 'find /home/upload/ | sort | tail -1 | xargs unzip -o -d /home/www/dist/'
+  ]
+};
+```
+
+### 测试下是否成功
+
+```bash
+npm run ldeploy
+# 或
+yarn run deploy
+```
+
+
+### 测试下是否成功
+
+```bash
+npm run ldeploy
+# 或
+yarn run deploy
+```

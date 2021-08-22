@@ -14,9 +14,11 @@
   "dependencies": {
     "app-root-path": "^2.1.0",
     "commander": "^2.16.0",
-    "gulp": "^3.9.1",
-    "gulp-run-sequence": "^0.3.2",
+    "gulp": "^4.0.2",
     "gulp-ssh": "^0.7.0",
-    "shelljs": "^0.8.2"
+    "shelljs": "^0.8.2",
+    "through2": "^4.0.2",
+    "vinyl-ftp": "^0.6.1",
+    "webpack-merge": "^5.8.0"
   }
 }
