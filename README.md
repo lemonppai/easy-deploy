@@ -13,10 +13,9 @@ npm install lemon-deploy --save
 yarn add lemon-deploy
 ```
 
-### remote.config.js配置
+### deploy.config.js配置
 
-在项目根目录创建`remote.config.js`文件
-默认配置如下：
+在项目根目录创建`deploy.config.js`文件，默认配置如下：
 
 ```js
 // 服务器配置
