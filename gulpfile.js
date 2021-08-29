@@ -22,14 +22,26 @@ function getConf() {
   }
 }
 
+// 服务器
+const client = {
+  server: null,
+  getServer() {
+    if (!this.server) {
+      const GulpSSH = require('gulp-ssh');
+
+      this.server = new GulpSSH({
+        ignoreErrors: false,
+        sshConfig: deployConf.ssh
+      });
+    }
+
+    return this.server;
+  }
+};
+
 // ssh 文件上传
 gulp.task('upload:ssh', () => {
-  const GulpSSH = require('gulp-ssh');
-
-  const gulpSSH = new GulpSSH({
-    ignoreErrors: false,
-    sshConfig: deployConf.ssh
-  });
+  const gulpSSH = client.getServer();
 
   return (
     gulp.src(deployConf.dist, {
@@ -79,8 +91,10 @@ gulp.task('upload:ftp', () => {
 
 // 服务器执行命令
 gulp.task('command', () => {
+  const gulpSSH = client.getServer();
+
   return gulpSSH.exec(deployConf.commands);
 });
 
 // 部署任务
-gulp.task('deploy', gulp.series(['upload:' + deployConf.type, 'command']));
+gulp.task('deploy', gulp.series(deployConf.type === 'ssh' ? ['upload:ssh', 'command'] : ['upload:ftp']));
