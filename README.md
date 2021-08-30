@@ -1,4 +1,4 @@
-# deploy
+# easy2-deploy
 目标文件通过`ssh`或`ftp`发布到服务器
 
 ## 使用
@@ -8,9 +8,9 @@
 国际惯例，先安装。
 
 ```bash
-npm install lemon-deploy --save
+npm install easy2-deploy --save
 # 或
-yarn add lemon-deploy
+yarn add easy2-deploy
 ```
 
 ### deploy.config.js配置
@@ -49,7 +49,7 @@ module.exports = {
   // 上传文件位置
   remoteDir: '/home/upload',
 
-  // 远程命令
+  // ssh远程命令
   commands: [
     // 解压命令
     // 'find /home/upload/ | sort | tail -1 | xargs unzip -o -d /home/www/dist/'
@@ -60,7 +60,7 @@ module.exports = {
 ### 测试下是否成功
 
 ```bash
-npx lemon-deploy
+npx easy2-deploy
 ```
 
 ### 结论

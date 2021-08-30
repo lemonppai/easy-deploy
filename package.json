@@ -1,10 +1,10 @@
 {
-  "name": "lemon-deploy",
-  "version": "0.4.5",
+  "name": "easy2-deploy",
+  "version": "0.1.2",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lemonppai/deploy.git"
+    "url": "git+https://github.com/lemonppai/easy-deploy.git"
   },
   "main": "index.js",
   "bin": "bin/cli.js",

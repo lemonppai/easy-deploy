@@ -29,7 +29,7 @@ module.exports = {
   // 上传文件位置
   remoteDir: '/home/upload',
 
-  // 远程命令
+  // ssh远程命令
   commands: [
     // 解压命令
     // 'find /home/upload/ | sort | tail -1 | xargs unzip -o -d /home/www/dist/'

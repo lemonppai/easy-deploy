@@ -14,7 +14,7 @@ function getConf() {
   const pathToRemote = path.resolve(rootPath, './deploy.config.js');
 
   // 项目根目录是否已创建deploy.config.js
-  if (fs.existsSync(pathToRemote)) {
+  if (rootPath !== __dirname && fs.existsSync(pathToRemote)) {
     return merge(conf, require(pathToRemote));
   }
   else {
@@ -43,20 +43,29 @@ const client = {
 gulp.task('upload:ssh', () => {
   const gulpSSH = client.getServer();
 
+  let flag = !deployConf.clean;
+
+  if (deployConf.clean) {
+    gulpSSH.shell(['rm -rf ' + deployConf.remoteDir  + '/*'])
+      .pipe(through2.obj(() => {
+        flag = true;
+      }));
+  }
+
   return (
     gulp.src(deployConf.dist, {
       cwd: rootPath,
     })
     .pipe(through2.obj((file, encoding, callback) => {
-      if (deployConf.clean) {
-        gulpSSH.shell(['rm -rf ' + remotePath])
-          .pipe(through2.obj(() => {
-            callback(null, file);
-          }));
+      let loop = () => {
+        if (flag) {
+          callback(null, file);
+        }
+        else {
+          setTimeout(loop, 20);
+        }
       }
-      else {
-        callback(null, file);
-      }
+      loop();
     }))
     .pipe(gulpSSH.dest(deployConf.remoteDir))
   );
@@ -69,20 +78,29 @@ gulp.task('upload:ftp', () => {
   //  FTP version
   const conn = ftp.create(deployConf.ftp);
 
+  let flag = !deployConf.clean;
+
+  if (deployConf.clean) {
+    conn.rmdir(deployConf.remoteDir, err => {
+      // console.log(err)
+      flag = true;
+    });
+  }
+
   return (
     gulp.src(deployConf.dist, {
       cwd: rootPath,
     })
     .pipe(through2.obj((file, encoding, callback) => {
-      if (deployConf.clean) {
-        conn.rmdir(remotePath, err => {
-          // console.log(err)
-          fcallback(null, file);
-        });
+      let loop = () => {
+        if (flag) {
+          callback(null, file);
+        }
+        else {
+          setTimeout(loop, 20);
+        }
       }
-      else {
-        callback(null, file);
-      }
+      loop();
     }))
     .pipe(conn.newer(deployConf.remoteDir))
     .pipe(conn.dest(deployConf.remoteDir))
