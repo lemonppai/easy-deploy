@@ -1,6 +1,6 @@
 {
   "name": "easy2-deploy",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "app-root-path": "^2.1.0",
+    "cfonts": "^2.9.3",
+    "chalk": "^4.1.2",
     "commander": "^2.16.0",
     "gulp": "^4.0.2",
     "gulp-ssh": "^0.7.0",

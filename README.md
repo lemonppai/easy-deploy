@@ -8,9 +8,9 @@
 国际惯例，先安装。
 
 ```bash
-npm install easy2-deploy --save
+npm install easy2-deploy --save-dev
 # 或
-yarn add easy2-deploy
+yarn add easy2-deploy --dev
 ```
 
 ### deploy.config.js配置
