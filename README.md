@@ -3,9 +3,7 @@
 
 ## 使用
 
-### 当前项目安装
-
-国际惯例，先安装。
+### 安装
 
 ```bash
 npm install easy2-deploy --save-dev
@@ -13,9 +11,9 @@ npm install easy2-deploy --save-dev
 yarn add easy2-deploy --dev
 ```
 
-### deploy.config.js配置
+### 配置
 
-在项目根目录创建`deploy.config.js`文件，默认配置如下：
+在项目根目录创建 **deploy.config.js** 文件，默认配置如下：
 
 ```js
 // 服务器配置
@@ -58,11 +56,6 @@ module.exports = {
 ```
 
 ### 测试下是否成功
-
 ```bash
 npx easy2-deploy
 ```
-
-### 结论
-
-雏形已现，功能持续完善中~

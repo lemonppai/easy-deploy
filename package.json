@@ -1,13 +1,19 @@
 {
   "name": "easy2-deploy",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lemonppai/easy-deploy.git"
   },
-  "main": "index.js",
-  "bin": "bin/cli.js",
+  "exports": {
+    ".": {
+      "import": "./index.js"
+    }
+  },
+  "bin": {
+    "easy2-deploy": "bin/cli.js"
+  },
   "scripts": {
     "deploy": "gulp deploy"
   },
